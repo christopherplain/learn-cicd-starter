@@ -18,5 +18,8 @@ jobs:
             - name: Check out code
               uses: actions/checkout@v3
 
-            - name: Force Failure
+            - name: Format code
+              run: test -z $(go fmt ./...)
+
+            - name: Test code
               run: go test -cover ./...
